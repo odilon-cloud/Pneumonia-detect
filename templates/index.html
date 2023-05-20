@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pneumonia Detection powered by AI</title>
+  <style>
+    body {
+      background-image: url('https://images.pexels.com/photos/48604/pexels-photo-48604.jpeg');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-attachment: fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    /* Rest of the CSS styles */
+    #navbar {
+      background-color: #0303b1;
+      padding: 10px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+
+    #navbar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s ease-in-out;
+    }
+
+    #navbar a:hover {
+      color: #4d8fd5; /* Light blue color */
+    }
+
+    #content {
+      padding-top: 50px; /* Adjust padding to avoid content overlapping with navbar */
+    }
+
+    #uploadForm {
+      text-align: center;
+      color: white;
+    }
+
+    #photoContainer {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    img {
+      max-width: 300px;
+      max-height: 300px;
+    }
+
+    h1 {
+      color: #07078a; /* Deep blue color */
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    input[type="file"],
+    input[type="submit"] {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #0303b1;
+      color: white;
+      cursor: pointer;
+    }
+
+    input[type="file"] {
+      margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    textarea {
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.8);
+      color: #07078a; /* Deep blue color */
+      width: 300px;
+      margin-bottom: 10px;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar">
+    <a href="#">Home</a>
+    <a href="#">History</a>
+  </div>
+
+  <div id="content">
+    <h1>Upload your x-ray photo for detection</h1>
+    <form id="uploadForm" enctype="multipart/form-data" action="{% url 'result' %}" method="post" required>
+      {% csrf_token %}
+      <input type="file" id="photoInput" name="photo" accept="image/*" />
+      <div>
+        <label for="patientId">Patient ID:</label>
+        <input type="text" id="patientId" name="patientId" />
+      </div>
+      <div>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description"></textarea>
+      </div>
+      <div class="button-container">
+        <input type="submit" value="Check results" />
+      </div>
+    </form>
+    <br />
+    <div id="photoContainer"></div>
+  </div>
+
+  <script>
+    // add bootstrap nyuma
+  </script>
+</body>
+</html>

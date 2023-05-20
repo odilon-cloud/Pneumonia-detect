@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pneumonia Detection Results</title>
+  <style>
+    body {
+      background-image: url('https://images.pexels.com/photos/48604/pexels-photo-48604.jpeg');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-attachment: fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .card {
+      max-width: 400px;
+      background-color: white;
+      border-radius: 5px;
+      padding: 20px;
+      margin: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      color: #07078a; /* Deep blue color */
+    }
+
+    .goback-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      background-color: #0303b1;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+    <div class="card">
+        <img src="{{ photo_url }}" alt="Uploaded X-ray Image">
+        <h2>Patient ID: {{ patient_id }}</h2>
+        <p>{{ description }}</p>
+        <h3>Result: {{ result }}</h3>
+        <button class="goback-btn" onclick="goBack()">Go Back</button>
+      </div>      
+
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+</body>
+</html>
